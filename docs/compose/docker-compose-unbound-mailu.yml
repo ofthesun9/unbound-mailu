@@ -2,7 +2,7 @@ version: '2'
 services:
   unbound:
     container_name: unbound
-    image: ofthesun9/unbound-mailu:1.1
+    image: ofthesun9/unbound-mailu:master
     restart: unless-stopped
     ports:
     - 0.0.0.0:53:53/tcp

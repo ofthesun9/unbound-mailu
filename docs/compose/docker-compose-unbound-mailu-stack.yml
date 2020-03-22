@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   unbound:
-    image: ofthesun9/unbound-mailu:1.1
+    image: ofthesun9/unbound-mailu:master
     ports:
      - 0.0.0.0:53:53/tcp
      - 0.0.0.0:53:53/udp
