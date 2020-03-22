@@ -1,0 +1,17 @@
+sudo: required
+services: docker
+
+env:
+  - PKG_VERSION=${TRAVIS_BRANCH////-}
+
+script:
+  - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes 
+  - docker build -t ofthesun9/unbound-mailu:amd64-${PKG_VERSION} -f core/unbound/Dockerfile core/unbound/
+  - docker build -t ofthesun9/unbound-mailu:arm64v8-${PKG_VERSION} -f core/unbound/Dockerfile.arm64v8 core/unbound/
+
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    all_branches: true
+    condition: -n $DOCKER_UN
