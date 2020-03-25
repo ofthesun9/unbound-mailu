@@ -1,4 +1,6 @@
-sudo: required
+dist: bionic
+os: linux
+language: bash
 services: docker
 
 env:
